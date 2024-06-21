@@ -204,6 +204,12 @@ ggsave(filename = "Outputs/Plots/S3_forest_plot_at_50th.png",
        height = 11,
        dpi = 100)
 
+ggsave(filename = "~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/Supplementary/S3_forest_plot_at_50th.png",
+       plot = gg50th,
+       width = 16,
+       height = 11,
+       dpi = 100)
+
 ### 95th
 
 models_int_plot_95 <-
@@ -240,7 +246,7 @@ models_int_plot_95 <-
 models_int_plot_95$yval <- seq(nrow(models_int_plot_95), 1, by = -1)
 
 
-p1 <- 
+p3 <- 
     models_int_plot_95 %>% 
     ggplot() + 
     theme_bw() + 
@@ -265,10 +271,10 @@ p1 <-
         # trans="log",
         breaks = c(1,2,3,4,5),
     )
-p1
+p3
 
 # labels, could be extended to show more information
-p2 <-
+p4 <-
     models_int_plot_95 %>% 
     ggplot() + 
     theme_bw() + 
@@ -293,19 +299,19 @@ p2 <-
         panel.border = element_blank() 
     ) +
     xlim(0,1)
-p2  
+p4  
 
 
 
-gg95th <- grid.arrange(gridExtra::gtable_cbind(ggplotGrob(p2), ggplotGrob(p1), 
-                                               size = "max"))
-gg95th
-
-ggsave(filename = "Outputs/Plots/S3_forest_plot_at_50th.png",
-       plot = gg50th,
-       width = 9,
-       height = 11,
-       dpi = 100)
+# gg95th <- grid.arrange(gridExtra::gtable_cbind(ggplotGrob(p2), ggplotGrob(p1), 
+#                                                size = "max"))
+# gg95th
+# 
+# ggsave(filename = "Outputs/Plots/S3_forest_plot_at_50th.png",
+#        plot = gg50th,
+#        width = 9,
+#        height = 11,
+#        dpi = 100)
 
 
 gg95th <- grid.arrange(gridExtra::gtable_cbind(ggplotGrob(p4), 
@@ -318,3 +324,10 @@ ggsave(filename = "Outputs/Plots/S4_forest_plot_at_95th.png",
        width = 9,
        height = 11,
        dpi = 100)
+
+ggsave(filename = "~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/S4_forest_plot_at_95th.png",
+       plot = gg95th,
+       width = 16,
+       height = 9,
+       dpi = 100)
+

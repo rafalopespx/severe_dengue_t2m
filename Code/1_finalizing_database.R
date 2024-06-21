@@ -1,7 +1,5 @@
 ### importing data
 ### times series of hospitalized cases, temp, stratas, and dengue cases
-
-
 library(tidyverse)
 library(tidylog)
 library(vroom)

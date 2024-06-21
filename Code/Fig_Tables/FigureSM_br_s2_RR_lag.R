@@ -121,7 +121,8 @@ ggsave(filename = "Outputs/Plots/percentil_effects_br_s2.png",
 library(patchwork)
 
 plot_figureSM<-(plot_overall | (plot_p50 / plot_p95))+
-    plot_layout(guides = "collect")+
+    plot_layout(guides = "collect",
+                widths = c(2,1))+
     plot_annotation(
         # title = "Meta-analysis Results", 
         tag_levels = c("A", "B", "C"), theme = theme_minimal())
@@ -129,7 +130,14 @@ plot_figureSM
 
 ggsave(filename = "Outputs/Plots/figure_2_br_s2_analysis.png", 
        plot = plot_figureSM, 
-       width = 11, 
+       width = 16, 
        height = 9, 
        dpi = 200)
 
+ggsave(filename = "~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/Supplementary/figure_2_br_s2_analysis.png", 
+       plot = plot_figureSM, 
+       width = 16, 
+       height = 9, 
+       dpi = 200)
+
+#

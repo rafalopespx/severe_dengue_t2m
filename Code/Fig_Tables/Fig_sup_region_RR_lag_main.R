@@ -98,13 +98,19 @@ plot_overall_region<-RR_overall_list %>%
     labs(x = "Mean Temperature [ºC] ", 
          y = "Dengue Hosp. RR",
          title="Temperature and Dengue Hospitalization",
-         subtitle=paste0("Meta by Regions, 2010-2019"))+
+         subtitle=paste0("2010-2019"))+
     facet_wrap(region~., scales = "free")
 plot_overall_region
 
 ggsave(plot = plot_overall_region,
        filename = paste0("Outputs/Plots/fig3_plot_overall_regions_all_regions_main.png"),
-       width = 11,
+       width = 16,
+       height = 9,
+       dpi = 200)
+
+ggsave(plot = plot_overall_region,
+       filename = paste0("~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/fig3_plot_overall_regions_all_regions_main.png"),
+       width = 16,
        height = 9,
        dpi = 200)
 
@@ -199,14 +205,21 @@ for (i in 1:5) {
     plot_p95
     
     plot_figure_region[[i]]<-(plot_overall_region | (plot_p50 / plot_p95))+
-        plot_layout(guides = "collect")+
-        plot_annotation(title = paste0("Meta-analysis Results, ", regions_names[i], " Region"), 
+        plot_layout(guides = "collect",
+                    widths = c(2,1))+
+        plot_annotation(title = paste0("Results ", regions_names[i], " Region"), 
                         tag_levels = c("A", "B", "C"), 
                         theme = theme_minimal())
     
     ggsave(filename = paste0("Outputs/Plots/figure_SM_", regions_names[i], "_region_meta_analysis.png"),
            plot = plot_figure_region[[i]],
-           width = 11,
+           width = 16,
            height = 9, 
-           dpi = 200)
+           dpi = 100)
+    
+    ggsave(filename = paste0("~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/Supplementary/figure_SM_", regions_names[i], "_region_meta_analysis.png"),
+           plot = plot_figure_region[[i]],
+           width = 16,
+           height = 9, 
+           dpi = 100)
 }

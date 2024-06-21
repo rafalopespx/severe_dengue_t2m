@@ -60,6 +60,12 @@ ggsave(plot = plot_overall,
        height = 9, 
        dpi = 200)
 
+ggsave(plot = plot_overall, 
+       filename = "~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/plot_overall_br_main.png", 
+       width = 11, 
+       height = 9, 
+       dpi = 200)
+
 # Percentile Plots Meta
 ## Plot effects on the P50
 ylab<-RRVal_lag_list %>% 
@@ -121,7 +127,8 @@ ggsave(filename = "Outputs/Plots/percentil_effects_br_main.png",
 library(patchwork)
 
 plot_figure1<-(plot_overall | (plot_p50 / plot_p95))+
-    plot_layout(guides = "collect")+
+    plot_layout(guides = "collect",
+                widths = c(2,1))+
     plot_annotation(
         # title = "Meta-analysis Results", 
         tag_levels = c("A", "B", "C"), theme = theme_minimal())
@@ -133,4 +140,10 @@ ggsave(filename = "Outputs/Plots/figure_2_br_main_analysis.png",
        height = 9, 
        dpi = 200)
 
+ggsave(plot = plot_figure1, 
+       filename = "~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/figure_2_br_main_RR_lags.png", 
+       width = 11, 
+       height = 9, 
+       dpi = 200)
 
+#

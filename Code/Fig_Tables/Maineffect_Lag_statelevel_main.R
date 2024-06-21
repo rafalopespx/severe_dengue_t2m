@@ -9,7 +9,6 @@ if(!require(patchwork)){install.packages("patchwork"); library(patchwork)}
 if(!require(geofacet)){install.packages("geofacet"); library(geofacet)}
 library(tidylog)
 
-
 # Loading databases
 ## Lag and Overall
 RRVal_lag_list <- vroom("Outputs/State/results_lag_main_state_residence.csv.xz")
@@ -171,6 +170,12 @@ plot_overall_state<-RR_overall_list %>%
 plot_overall_state
 
 ggsave(paste0("Outputs/Plots/main_all_state_overall_effects.png"),
+       plot = plot_overall_state,
+       width = 9,
+       height = 7,
+       dpi = 300)
+
+ggsave(paste0("~/Dropbox/Rafael_Paixao/Article_Dengue_hosp/IJHEH/Figures/Supplementary/main_all_state_overall_effects.png"),
        plot = plot_overall_state,
        width = 9,
        height = 7,

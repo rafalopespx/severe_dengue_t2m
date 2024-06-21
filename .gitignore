@@ -1,3 +1,4 @@
 ## Databases to not upload
 *.parquet
 *.csv.xz
+.Rproj.user
